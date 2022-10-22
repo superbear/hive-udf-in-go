@@ -48,7 +48,7 @@ public class Client {
             out = new FileOutputStream(temp);
             IOUtils.copy(in, out);
         } catch (Exception e) {
-            throw new RuntimeException("extract resource '" + name + "' from " + path + "failed", e);
+            throw new RuntimeException("extract resource '" + name + "' from " + path + " failed", e);
         } finally {
             IOUtils.closeQuietly(in);
             IOUtils.closeQuietly(out);

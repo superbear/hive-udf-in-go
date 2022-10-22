@@ -4,12 +4,16 @@ GO := go
 # env
 export GO111MODULE := on
 
-build: ## build go shared library then build jar
+build-go: ## build go shared library
 	cd go && $(GO) build -o awesome.so -buildmode=c-shared awesome.go
 	cp go/awesome.so src/main/resources/
+
+build: ## build jar
+	make build-go
 	mvn clean package assembly:single
 
 test: ## test
+	make build-go
 	rm -f awesome.so
 	mvn clean test
 
