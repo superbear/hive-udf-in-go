@@ -14,7 +14,7 @@
     <go.version>1.15</go.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
-    <jna.version>4.5.1</jna.version>
+    <jna.version>5.12.0</jna.version>
     <hadoop.version>2.7.2</hadoop.version>
     <hive.version>2.3.7</hive.version>
     <junit-jupiter.version>5.5.2</junit-jupiter.version>
@@ -37,11 +37,6 @@
       <artifactId>hive-exec</artifactId>
       <version>${hive.version}</version>
       <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>commons-io</groupId>
-      <artifactId>commons-io</artifactId>
-      <version>2.4</version>
     </dependency>
     <!-- junit 5 -->
     <dependency>
