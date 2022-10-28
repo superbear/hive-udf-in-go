@@ -7,11 +7,18 @@ on:
   pull_request:
 
 jobs:
-  deploy:
+  test:
     runs-on: ubuntu-latest
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
-      cancel-in-progress: true
+    # concurrency:
+      # group: ${{ github.workflow }}-${{ github.ref }}
+      # cancel-in-progress: true
+    strategy:
+      matrix:
+        java: [8, 11, 16, 17-ea]
+        go: ['1.13', '1.14', '1.15', '1.16', '1.17', '1.18', '1.19']
+      fail-fast: false
+    name: Test JDK ${{ matrix.java }}, Go ${{ matrix.go }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -22,13 +29,13 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v3.3.0
         with:
-          go-version-file: go/go.mod
+          go-version: ${{ matrix.go }}
 
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '8'
+          java-version: ${{ matrix.java }}
           cache: 'maven'
 
       - name: Test
