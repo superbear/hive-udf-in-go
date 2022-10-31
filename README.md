@@ -12,7 +12,7 @@ There is a provided `Makefile` with all the build targets.
 ```bash
 make build
 ```
-This creates a `target/hive-udf-in-go-1.0-SNAPSHOT-jar-with-dependencies.jar` in the `target/` directory.
+This creates a `hive-udf-in-go-1.0-SNAPSHOT-jar-with-dependencies.jar` in the `target/` directory.
 
 ### Test
 ```bash
@@ -20,6 +20,14 @@ make test
 ```
 
 ## Usage
+```sql
+-- register
+hive> ADD JAR /path/to/hive-udf-in-go-1.0-SNAPSHOT-jar-with-dependencies.jar;
+hive> CREATE TEMPORARY FUNCTION atoi AS 'hive.udf.GenericUDFAtoi';
+hive> CREATE TEMPORARY FUNCTION upper AS 'hive.udf.GenericUDFUpper';
+
+SELECT atoi(xxx) FROM xxx;
+```
 
 ## References
 - [Apache Hive](https://github.com/apache/hive/tree/master/ql/src/java/org/apache/hadoop/hive/ql/udf/generic)
