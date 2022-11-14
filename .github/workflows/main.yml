@@ -39,13 +39,6 @@ jobs:
           cache: 'maven'
 
       - uses: s4u/maven-settings-action@v2.8.0
-        with:
-          servers: |
-            [{
-            "id": "github",
-            "username": "${{ env.GITHUB_ACTOR }}",
-            "password": "${{ secrets.MAVEN_TOKEN }}"
-            }]
 
       - name: Test
         run: |
