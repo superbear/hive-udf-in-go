@@ -43,7 +43,7 @@ jobs:
           servers: |
             [{
             "id": "github",
-            "username": "${{ secrets.GITHUB_USERNAME }}",
+            "username": "${{ env.GITHUB_ACTOR }}",
             "password": "${{ secrets.MAVEN_TOKEN }}"
             }]
 
