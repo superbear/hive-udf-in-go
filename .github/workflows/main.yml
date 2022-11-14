@@ -40,7 +40,7 @@ jobs:
 
       - name: Test
         env:
-          GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
+          USERNAME: ${{ secrets.USERNAME }}
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
-          make test
+          mvn -s $GITHUB_WORKSPACE/.github/workflows/maven-settings.xml -B test --file pom.xml
