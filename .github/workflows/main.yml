@@ -38,6 +38,10 @@ jobs:
           java-version: ${{ matrix.java }}
           cache: 'maven'
 
+        # https://stackoverflow.com/questions/64706720/how-to-access-maven-dependency-from-github-packages-on-a-github-actions-workflow
       - name: Test
+        env:
+          USERNAME: ${{ secrets.USERNAME }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
-          make test
+          mvn -s $GITHUB_WORKSPACE/.github/workflows/maven-settings.xml -B test --file pom.xml

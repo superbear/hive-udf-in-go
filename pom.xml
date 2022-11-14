@@ -14,18 +14,12 @@
     <go.version>1.15</go.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
-    <jna.version>5.12.0</jna.version>
     <hadoop.version>2.7.2</hadoop.version>
     <hive.version>2.3.7</hive.version>
     <junit-jupiter.version>5.5.2</junit-jupiter.version>
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>net.java.dev.jna</groupId>
-      <artifactId>jna</artifactId>
-      <version>${jna.version}</version>
-    </dependency>
     <dependency>
       <groupId>org.apache.hadoop</groupId>
       <artifactId>hadoop-common</artifactId>
@@ -37,6 +31,11 @@
       <artifactId>hive-exec</artifactId>
       <version>${hive.version}</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>github.superbear</groupId>
+      <artifactId>java-call-go</artifactId>
+      <version>1.0-SNAPSHOT</version>
     </dependency>
     <!-- junit 5 -->
     <dependency>
@@ -56,6 +55,14 @@
         <enabled>true</enabled>
         <updatePolicy>always</updatePolicy>
       </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>github</id>
+      <url>https://maven.pkg.github.com/superbear/java-call-go</url>
       <snapshots>
         <enabled>true</enabled>
         <updatePolicy>always</updatePolicy>
