@@ -31,5 +31,3 @@ SELECT atoi(xxx) FROM xxx;
 
 ## References
 - [Apache Hive](https://github.com/apache/hive/tree/master/ql/src/java/org/apache/hadoop/hive/ql/udf/generic)
-- [call-go-function-from-java-demo](https://github.com/freewind-demos/call-go-function-from-java-demo)
-- [go-cshared-examples](https://github.com/vladimirvivien/go-cshared-examples)
