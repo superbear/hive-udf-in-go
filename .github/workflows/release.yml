@@ -28,10 +28,10 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
-          mvn -s $GITHUB_WORKSPACE/.m2/settings.xml
+          mvn -s $GITHUB_WORKSPACE/.m2/settings.xml install
 
       - name: Publish to GitHub Packages Apache Maven
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          mvn --batch-mode deploy
+          mvn -B deploy
